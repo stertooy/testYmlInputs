@@ -46,3 +46,10 @@ jobs:
           CHOICE_A: ${{ inputs.CHOICE }}
           BOOLEAN_A: ${{ inputs.BOOLEAN }}
           STRING_A: ${{ inputs.STRING }}
+      - name: "With very wrong inputs"
+        uses: ./
+        with:
+          NUMBER_A: "sup"
+          CHOICE_A: "oh no"
+          BOOLEAN_A: "why would you do this"
+          STRING_A: "oh em gee"
