@@ -1,0 +1,37 @@
+name: test
+on:
+  workflow_dispatch:
+    inputs:
+      NUMBER:
+        required: false
+        type: number
+        default: "3"
+      CHOICE:
+        required: false
+        type: choice
+        options: ["herp","derp"]
+        default: "blah"
+      BOOLEAN:
+        required: false
+        type: boolean
+        default: false
+      STRING:
+        required: false
+        type: string
+        default: "oh dear"
+
+jobs:
+
+  test:
+    name: "Show input output"
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: "Checkout"
+        run: |
+          set -x
+          echo "${{ inputs.NUMBER }}"
+          echo ${{ inputs.CHOICE }}
+          echo ${{ inputs.BOOLEAN }}
+          echo ${{ inputs.STRING }}
