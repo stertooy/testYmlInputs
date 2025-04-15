@@ -1,0 +1,32 @@
+name: "Test Action"
+description: "Test Action Inputs"
+inputs:
+  NUMBER_A:
+    required: false
+    type: number
+    default: 7
+  CHOICE_A:
+    required: false
+    type: choice
+    options: ["herp","derp"]
+    default: "blah"
+  BOOLEAN_A:
+    required: false
+    type: boolean
+    default: false
+  STRING_A:
+    required: false
+    type: string
+    default: "dearie me"
+
+runs:
+  using: "composite"
+  steps:
+  
+    - name: "echo variables"
+      run: |
+        set -x
+        echo "${{ inputs.NUMBER }}"
+        echo ${{ inputs.CHOICE }}
+        echo ${{ inputs.BOOLEAN }}
+        echo ${{ inputs.STRING }}
