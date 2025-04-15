@@ -21,6 +21,7 @@ inputs:
 
 runs:
   using: "composite"
+  runs-on: ubuntu-latest
   steps:
   
     - name: "echo variables"
