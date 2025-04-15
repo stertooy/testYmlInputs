@@ -28,10 +28,21 @@ jobs:
 
     steps:
 
-      - name: "Checkout"
+      - name: "Echo inputs"
         run: |
           set -x
           echo "${{ inputs.NUMBER }}"
           echo ${{ inputs.CHOICE }}
           echo ${{ inputs.BOOLEAN }}
           echo ${{ inputs.STRING }}
+      - name: "Check out this repository"
+        uses: actions/checkout@v4
+      - name: "No inputs"
+        uses: ./
+      - name: "With inputs form workflow"
+        uses: ./
+        with:
+          NUMBER_A: ${{ inputs.NUMBER }}
+          CHOICE_A: ${{ inputs.CHOICE }}
+          BOOLEAN_A: ${{ inputs.BOOLEAN }}
+          STRING_A: ${{ inputs.STRING }}
