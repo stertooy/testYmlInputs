@@ -5,16 +5,16 @@ on:
       NUMBER:
         required: false
         type: number
-        default: "3"
+        default: 9
       CHOICE:
         required: false
         type: choice
         options: ["herp","derp"]
-        default: "blah"
+        default: "derp"
       BOOLEAN:
         required: false
         type: boolean
-        default: false
+        default: true
       STRING:
         required: false
         type: string
