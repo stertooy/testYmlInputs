@@ -21,10 +21,10 @@ inputs:
 
 runs:
   using: "composite"
-  runs-on: ubuntu-latest
   steps:
   
     - name: "echo variables"
+      shell: bash
       run: |
         set -x
         echo "${{ inputs.NUMBER_A }}"
