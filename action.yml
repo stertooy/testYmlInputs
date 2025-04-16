@@ -18,6 +18,12 @@ inputs:
     required: false
     type: string
     default: "dearie me"
+  HERP:
+    required: false
+    type: boolean
+  DERP:
+    required: false
+    type: boolean
 
 runs:
   using: "composite"
@@ -51,3 +57,28 @@ runs:
       if: ${{ inputs.BOOLEAN_A == 'false' }}
       run: |
         echo "String if, ${{ inputs.BOOLEAN_A }} should be false"
+    - name: "only run if boolean true"
+      shell: bash
+      if: true
+      run: |
+        echo "boolean true"
+    - name: "only run if boolean false"
+      shell: bash
+      if: false
+      run: |
+        echo "boolean false"
+    - name: "only run if string true"
+      shell: bash
+      if: "true"
+      run: |
+        echo "string true"
+    - name: "only run if string false"
+      shell: bash
+      if: "false"
+      run: |
+        echo "string false"
+    - name: "only run if empty string"
+      shell: bash
+      if: ""
+      run: |
+        echo "empty string"
