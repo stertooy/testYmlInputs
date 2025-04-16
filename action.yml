@@ -45,13 +45,13 @@ runs:
         echo ${{ inputs.STRING_A }}
     - name: "only run if string input is true"
       shell: bash
-      if: ${{ fromJSON(inputs.BOOLEAN_A) }}
+      if: ${{ fromJSON(github.event.inputs.BOOLEAN_A) }}
       run: |
         echo "boolean evaluated to true"
-        echo "${{ inputs.STRING_A }}"
+        echo "${{ inputs.BOOLEAN_A }}"
     - name: "only run if string input is false"
       shell: bash
-      if: ${{ !fromJSON(inputs.BOOLEAN_A) }}
+      if: ${{ !fromJSON(github.event.inputs.BOOLEAN_A) }}
       run: |
         echo "boolean evaluated to false"
-        echo "${{ inputs.STRING_A }}"
+        echo "${{ inputs.BOOLEAN_A }}"
