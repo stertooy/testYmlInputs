@@ -37,48 +37,13 @@ runs:
         echo ${{ inputs.CHOICE_A }}
         echo ${{ inputs.BOOLEAN_A }}
         echo ${{ inputs.STRING_A }}
-    - name: "Only run if BOOLEAN_A input is boolean with value true"
+    - name: "only run if string input is true"
       shell: bash
-      if: ${{ inputs.BOOLEAN_A }}
+      if: ${{ inputs.STRING_A }}
       run: |
-        echo "Boolean if, ${{ inputs.BOOLEAN_A }} should be true"
-    - name: "Only run if BOOLEAN_A input is boolean with value false"
+        echo "${{ inputs.STRING_A }}"
+    - name: "only run if string input is false"
       shell: bash
-      if: ${{ !inputs.BOOLEAN_A }}
+      if: ${{ !inputs.STRING_A }}
       run: |
-        echo "Boolean if, ${{ inputs.BOOLEAN_A }} should be false"
-    - name: "Only run if BOOLEAN_A input is a string with value true"
-      shell: bash
-      if: ${{ inputs.BOOLEAN_A == 'true' }}
-      run: |
-        echo "String if, {{ inputs.BOOLEAN_A }} should be true"
-    - name: "Only run if BOOLEAN_A input is a string with value false"
-      shell: bash
-      if: ${{ inputs.BOOLEAN_A == 'false' }}
-      run: |
-        echo "String if, ${{ inputs.BOOLEAN_A }} should be false"
-    - name: "only run if boolean true"
-      shell: bash
-      if: ${{ true }}
-      run: |
-        echo "boolean true"
-    - name: "only run if boolean false"
-      shell: bash
-      if: ${{ false }}
-      run: |
-        echo "boolean false"
-    - name: "only run if string true"
-      shell: bash
-      if: ${{ "true" }}
-      run: |
-        echo "string true"
-    - name: "only run if string false"
-      shell: bash
-      if: ${{ "false" }}
-      run: |
-        echo "string false"
-    - name: "only run if empty string"
-      shell: bash
-      if: ${{ "" }}
-      run: |
-        echo "empty string"
+        echo "${{ inputs.STRING_A }}"
