@@ -48,6 +48,6 @@ runs:
         echo "String if, {{ inputs.BOOLEAN_A }} should be true"
     - name: "Only run if BOOLEAN_A input is a string with value false"
       shell: bash
-      if: ${{ !inputs.BOOLEAN_A == 'false' }}
+      if: ${{ inputs.BOOLEAN_A == 'false' }}
       run: |
         echo "String if, ${{ inputs.BOOLEAN_A }} should be false"
