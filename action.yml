@@ -17,7 +17,7 @@ inputs:
   STRING_A:
     required: false
     type: string
-    default: "dearie me"
+    default: ""
   HERP:
     required: false
     type: boolean
@@ -41,9 +41,11 @@ runs:
       shell: bash
       if: ${{ inputs.STRING_A }}
       run: |
+        echo "string evaluated to true"
         echo "${{ inputs.STRING_A }}"
     - name: "only run if string input is false"
       shell: bash
       if: ${{ !inputs.STRING_A }}
       run: |
+        echo "string evaluated to false"
         echo "${{ inputs.STRING_A }}"
