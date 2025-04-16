@@ -18,12 +18,18 @@ inputs:
     required: false
     type: string
     default: ""
-  HERP:
+  YES:
     required: false
     type: boolean
-  DERP:
+    default: "YES"
+  NO:
     required: false
     type: boolean
+    default: "NO"
+  TRUE:
+    required: false
+    type: boolean
+    default: "TRUE"
 
 runs:
   using: "composite"
@@ -39,13 +45,13 @@ runs:
         echo ${{ inputs.STRING_A }}
     - name: "only run if string input is true"
       shell: bash
-      if: ${{ inputs.STRING_A }}
+      if: ${{ fromJSON(inputs.BOOLEAN_A) }}
       run: |
-        echo "string evaluated to true"
+        echo "boolean evaluated to true"
         echo "${{ inputs.STRING_A }}"
     - name: "only run if string input is false"
       shell: bash
-      if: ${{ !inputs.STRING_A }}
+      if: ${{ !fromJSON(inputs.BOOLEAN_A) }}
       run: |
-        echo "string evaluated to false"
+        echo "boolean evaluated to false"
         echo "${{ inputs.STRING_A }}"
