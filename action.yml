@@ -35,19 +35,19 @@ runs:
       shell: bash
       if: ${{ inputs.BOOLEAN_A }}
       run: |
-        echo "${{ inputs.BOOLEAN_A }} should be true"
+        echo "Boolean if, ${{ inputs.BOOLEAN_A }} should be true"
     - name: "Only run if BOOLEAN_A input is boolean with value false"
       shell: bash
       if: ${{ !inputs.BOOLEAN_A }}
       run: |
-        echo "${{ inputs.BOOLEAN_A }} should be false"
+        echo "Boolean if, ${{ inputs.BOOLEAN_A }} should be false"
     - name: "Only run if BOOLEAN_A input is a string with value true"
       shell: bash
       if: ${{ inputs.BOOLEAN_A == 'true' }}
       run: |
-        echo "${{ inputs.BOOLEAN_A }} should be true"
+        echo "String if, {{ inputs.BOOLEAN_A }} should be true"
     - name: "Only run if BOOLEAN_A input is a string with value false"
       shell: bash
       if: ${{ !inputs.BOOLEAN_A == 'false' }}
       run: |
-        echo "${{ inputs.BOOLEAN_A }} should be false"
+        echo "String if, ${{ inputs.BOOLEAN_A }} should be false"
