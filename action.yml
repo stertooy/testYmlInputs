@@ -32,9 +32,10 @@ inputs:
     default: "TRUE"
 
 runs:
-  using: "composite"
-  steps:
-  
+  using: "composite" 
+  env:
+    BOOLEAN_A: ${{inputs.BOOLEAN_A}}
+  steps:    
     - name: "echo variables"
       shell: bash
       run: |
@@ -45,13 +46,13 @@ runs:
         echo ${{ inputs.STRING_A }}
     - name: "only run if string input is true"
       shell: bash
-      if: ${{ fromJSON(github.event.inputs.BOOLEAN_A) }}
+      if: ${{ fromJSON(env.BOOLEAN_A) }}
       run: |
         echo "boolean evaluated to true"
         echo "${{ inputs.BOOLEAN_A }}"
     - name: "only run if string input is false"
       shell: bash
-      if: ${{ !fromJSON(github.event.inputs.BOOLEAN_A) }}
+      if: ${{ !fromJSON(env.BOOLEAN_A) }}
       run: |
         echo "boolean evaluated to false"
         echo "${{ inputs.BOOLEAN_A }}"
