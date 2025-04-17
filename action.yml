@@ -36,23 +36,17 @@ runs:
   env:
     BOOLEAN_A: ${{inputs.BOOLEAN_A}}
   steps:    
-    - name: "echo variables"
-      shell: bash
+    - name: Test A
+      id: test
       run: |
-        set -x
-        echo "${{ inputs.NUMBER_A }}"
-        echo ${{ inputs.CHOICE_A }}
-        echo ${{ inputs.BOOLEAN_A }}
-        echo ${{ inputs.STRING_A }}
-    - name: "only run if string input is true"
-      shell: bash
-      if: ${{ fromJSON(env.BOOLEAN_A) }}
+        TEST="blah"
+        {
+          echo 'ASSETS+=<<EOF'
+          echo "${TEST}"
+          echo EOF
+        } >> "$GITHUB_ENV"
+
+    - name: Test B
+      id: test-output
       run: |
-        echo "boolean evaluated to true"
-        echo "${{ inputs.BOOLEAN_A }}"
-    - name: "only run if string input is false"
-      shell: bash
-      if: ${{ !fromJSON(env.BOOLEAN_A) }}
-      run: |
-        echo "boolean evaluated to false"
-        echo "${{ inputs.BOOLEAN_A }}"
+        echo $ASSETS
