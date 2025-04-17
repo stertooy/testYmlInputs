@@ -54,6 +54,7 @@ runs:
         buzz"
         {
           echo 'ASSETS<<EOF'
+          echo "$ASSETS"
           echo "$TEST2"
           echo 'EOF'
         } >> "$GITHUB_ENV"
