@@ -49,15 +49,7 @@ runs:
     - name: Test B
       shell: bash
       run: |
-        TEST2="foo
-        bar
-        buzz"
-        {
-          echo 'ASSETS<<EOF'
-          echo "$ASSETS"
-          echo "$TEST2"
-          echo 'EOF'
-        } >> "$GITHUB_ENV"
+        echo -e "ASSETS<<EOF\n$ASSETS\n$TEST2\nEOF" >> "$GITHUB_ENV"
 
     - name: Test C
       shell: bash
