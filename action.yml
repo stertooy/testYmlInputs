@@ -40,7 +40,11 @@ runs:
         TEST="blah
         derp
         herp"
-        echo "ASSETS=$TEST" >> "$GITHUB_ENV"
+        {
+          echo 'ASSETS<<EOF'
+          echo "$TEST"
+          echo 'EOF'
+        } >> "$GITHUB_ENV"
 
     - name: Test B
       shell: bash
