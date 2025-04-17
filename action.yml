@@ -33,11 +33,9 @@ inputs:
 
 runs:
   using: "composite" 
-  env:
-    BOOLEAN_A: ${{inputs.BOOLEAN_A}}
   steps:    
     - name: Test A
-      id: test
+      shell: bash
       run: |
         TEST="blah"
         {
@@ -47,6 +45,6 @@ runs:
         } >> "$GITHUB_ENV"
 
     - name: Test B
-      id: test-output
+      shell: bash
       run: |
         echo $ASSETS
