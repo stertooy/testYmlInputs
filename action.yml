@@ -49,6 +49,9 @@ runs:
     - name: Test B
       shell: bash
       run: |
+        TEST2="foo
+        bar
+        buzz"
         echo -e "ASSETS<<EOF\n$ASSETS\n$TEST2\nEOF" >> "$GITHUB_ENV"
 
     - name: Test C
