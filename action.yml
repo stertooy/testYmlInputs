@@ -52,10 +52,8 @@ runs:
         TEST2="foo
         bar
         buzz"
-        echo "ASSETS<<EOF
-        $ASSETS
-        $TEST2
-        EOF" >> "$GITHUB_ENV"
+        echo "ASSETS=$ASSETS
+        $TEST2" >> "$GITHUB_ENV"
 
     - name: Test C
       shell: bash
