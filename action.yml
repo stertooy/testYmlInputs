@@ -37,12 +37,10 @@ runs:
     - name: Test A
       shell: bash
       run: |
-        TEST="blah"
-        {
-          echo 'ASSETS+=<<EOF'
-          echo "${TEST}"
-          echo EOF
-        } >> "$GITHUB_ENV"
+        TEST="blah
+        derp
+        herp"
+        echo "ASSETS=$TEST" >> "$GITHUB_ENV"
 
     - name: Test B
       shell: bash
