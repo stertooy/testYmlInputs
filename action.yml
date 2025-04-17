@@ -41,12 +41,24 @@ runs:
         derp
         herp"
         {
-          echo 'ASSETS=<<EOF'
+          echo 'ASSETS<<EOF'
           echo "$TEST"
           echo 'EOF'
         } >> "$GITHUB_ENV"
 
     - name: Test B
+      shell: bash
+      run: |
+        TEST2="foo
+        bar
+        buzz"
+        {
+          echo 'ASSETS<<EOF'
+          echo "$TEST2"
+          echo 'EOF'
+        } >> "$GITHUB_ENV"
+
+    - name: Test C
       shell: bash
       run: |
         echo $ASSETS
