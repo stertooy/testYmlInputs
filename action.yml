@@ -37,25 +37,18 @@ runs:
     - name: Test A
       shell: bash
       run: |
-        TEST="blah
-        derp
-        herp"
-        {
-          echo 'ASSETS<<EOF'
-          echo "$TEST"
-          echo 'EOF'
-        } >> "$GITHUB_ENV"
+        echo "GAPROOT=$GAPROOT"
+        GAPROOT=$HOME/gap
 
     - name: Test B
       shell: bash
       run: |
-        TEST2="foo
-        bar
-        buzz"
-        echo "ASSETS=$ASSETS
-        $TEST2" >> "$GITHUB_ENV"
+        echo "GAPROOT=$GAPROOT"
+        GAPROOT=$HOME/gap
+        echo "GAPROOT=$GAPROOT" >> "$GITHUB_ENV"
 
     - name: Test C
       shell: bash
       run: |
-        echo $ASSETS
+        echo "GAPROOT=$GAPROOT"
+        GAPROOT=$HOME/gap
